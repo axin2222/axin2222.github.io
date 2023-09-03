@@ -107,22 +107,21 @@
 <p>请使用 Python  编程，完成下列问题：</p>
 <p>(1) 使用附件中的 tmdb_5000_movies.csv 和 tmdb_5000_credits.csv 数据集，进 行数据清洗、 数据挖掘、数据分析和数据可视化等，研究电影票房的影响因素有</p>
 <p>哪些？ 从不同的维度分析电影，讨论并分析你的结果。</p>
-<p>(2) 附件 tmdb_ 1000_predict.csv 中包含 1000 部电影的基本信息， 请你选择 合适的指标，进行特征提取， 建立机器学习的预测模型， 预测 1000  部电影的 vote_average 和 vote_count，并保存为 tmdb_ 1000_predicted.csv。</p>
+<p>(2) 附件 tmdb_ 1000_predict.csv 中包含 1000 部电影的基本信息， 请你选择 合适的指标，进行特征提取， 建立机器学习的预测模型， 预测 1000  部电影的 vote_average 和 vote_count，并保存为 tmdb_ 1000_predicted.csv。 </p>
 <p>数据清洗</p>
-<p><em><strong>*1*</strong></em> 导入数据</p>
-<p><img src="/./o/NO.01.001.jpg"></p>
-<p><img src="file:///C:\Users\asus\AppData\Local\Temp\ksohtml16736\wps2.jpg" alt="img"> </p>
-<p><em><strong>*2*</strong></em> 缺失值处理</p>
-<p>缺失记录仅__3_条，采取网上搜索，补全信息。</p>
-<p><em><strong>*2.1*</strong></em> 补全 <em><strong>*relea*</strong></em><em><strong>*se*</strong></em><em><strong>*_*</strong></em><em><strong>*date*</strong></em></p>
-<p><img src="file:///C:\Users\asus\AppData\Local\Temp\ksohtml16736\wps3.jpg" alt="img"> </p>
-<p>缺失记录的电影标题为《America Is Still the Place》， 日期为_2014-06-01_。</p>
-<p><em><strong>*2.2*</strong></em> 补全 <em><strong>*runtime*</strong></em></p>
-<p><img src="file:///C:\Users\asus\AppData\Local\Temp\ksohtml16736\wps4.jpg" alt="img"> </p>
-<p>缺失记录的电影 runtime 分别为___94____min 和 ___240____min。</p>
-<p><em><strong>*3*</strong></em> 重复值处理</p>
-<p><img src="file:///C:\Users\asus\AppData\Local\Temp\ksohtml16736\wps5.jpg" alt="img"> </p>
-<p>运行结果：有_4803 个不重复的 id ，可以认为没有重复数据。</p>
+<p>此时剩余_2954_条数据，包含___20___个字段。</p>
+<p><em><strong>*6*</strong></em> <em><strong>*json*</strong></em> 数据转换</p>
+<p>**说明： **genres,keywords,production_companies,production_countries,cast,crew 这 6 列都是 json 数据，需要处理为列表进行分析。</p>
+<p>处理方法：</p>
+<p>json 本身为字符串类型，先转换为字典列表，再将字典列表转换为，以’,’分割的字符串</p>
+<p><em><strong>*7*</strong></em> 数据备份 </p>
+<p><em><strong>*5*</strong></em> 数据分析</p>
+<p><em><strong>*5.1*</strong></em> <em><strong>*why*</strong></em></p>
+<p>想要探索影响票房的因素， 从电影市场趋势， 观众喜好类型， 电影导演， 发行时间， 评分与</p>
+<p>关键词等维度着手，给从业者提供合适的建议。</p>
+<p>5.2 what</p>
+<p>5.2.1  电影类型：定义一个集合，获取所有的电影类型 </p>
+<p>注意到集合中存在多余的元素：空的单引号，所以需要去除。</p>
 
                 </section>
 
