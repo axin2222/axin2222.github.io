@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+    
+    <link rel='stylesheet' href="/./css/dracula.css">
+
+        <title>让Web站点崩溃最常见的七大原因</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <header class="al_header al_pos_fixed">
+    <div class="al_header_container dis_flex_jcenter">
+        <div class="al_header_container_left">
+            <div class="al_header_site_title">
+                <a href="/">Hexo</a>
+            </div>
+        </div>
+
+        <div class="dis_flex_jcenter">
+            <div class="al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-menu"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="al_sidebar">
+
+    <div class="al_sidebar_overlay al_full_cover"></div>
+
+    <div class="al_pos_fixed al_sidebar_cnt">
+        <div class="dis_flex_acenter al_sidebar_header">
+            <h3>Hexo</h3>
+            <div class="al_sidebar_close al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-close"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="al_sidebar_author_cnt">
+
+            <div class="al_sidebar_author_info">
+                <h4>John Doe</h4>
+                <img class="al_sidebar_avatar" src="https://yourAvatorURL">
+                <p></p>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+        
+    <div class="dis_flex_center al_lightbox_cnt al_full_cover">
+        <img class="al_lightbox_img"/>
+    </div>
+    <div class="al_page_background dis_flex_center al_full_cover"></div>
+    <div class="al_page_container">
+        <div class="al_pos_ab al_fake_background"></div>
+        <div class="al_main_container al_shadow al_main_page_container">
+            <article class="al_article">
+                <header>
+                    <h1 class="al_page_title">
+                        让Web站点崩溃最常见的七大原因
+                    </h1>
+                    <div class="al_page_info dis_flex">
+                        <div class="al_page_content_info">
+                            Sun September 3, 2023 09:57 AM
+                        </div>
+
+                        
+
+                        
+                        <span class="tags"></span>
+                    </div>
+                </header>
+
+                
+
+                
+                <section id="post-body">
+                    <p>　<strong>磁盘已满</strong>　<br>　　导致系统无法正常运行的最可能的原因是磁盘已满。一个好的网络管理员会密切关注磁盘的使用情况，隔一定的时间，就需要将磁盘上的一些负载转存到备份存储介质中（例如磁带）。<br>　　<strong>日志</strong>文件会很快用光所有的磁盘空间。Web服务器的日志文件、SQL*Net的日志文件、JDBC日志文件，以及应用程序服务器日志文件均与内存泄漏有同等的危害。可以采取措施将日志文件保存在与<strong>操作系统</strong>不同的文件系统中。日志文件系统空间已满时Web服务器也会被挂起，但机器自身被挂起的几率已大大减低。<br>　　<strong>C指针错误</strong><br>　　用C或C++编写的程序，如Web服务器API模块，有可能导致系统的崩溃，因为只要间接引用指针（即，访问指向的内存）中出现一个错误，就会导致操作系统终止所有程序。另外，使用了糟糕的C指针的Java模拟量（analog）将访问一个空的对象引用。Java中的空引用通常不会导致立刻退出JVM，但是前提是程序员能够使用异常处理方法恰当地处理错误。在这方面，Java无需过多的关注，但使用 Java对可靠性进行额外的度量则会对性能产生一些负面影响。<br>　　<strong>内存泄漏</strong><br>　　C&#x2F;C++程序还可能产生另一个指针问题：丢失对已分配内存的引用。当内存是在子程序中被分配时，通常会出现这种问题，其结果是程序从子程序中返回时不会释放内存。如此一来，对已分配的内存的引用就会丢失，只要操作系统还在运行中，则进程就会一直使用该内存。这样的结果是，曾占用更多的内存的程序会降低系统性能，直到机器完全停止<strong>工作</strong>，才会完全清空内存。<br>　　解决方案之一是使用代码分析工具（如Purify）对代码进行仔细分析，以找出可能出现的泄漏问题。但这种方法无法找到由<strong>其他</strong>原因引起的库中的泄漏，因为库的源代码是不可用的。另一种方法是每隔一段时间，就清除并重启进程。Apache的Web服务器就会因这个原因创建和清除子进程。<br>　　虽然Java本身并无指针，但总的说来，与C程序相比， Java程序使用内存的情况更加糟糕。在Java中，对象被频繁创建，而直到所有到对象的引用都消失时，垃圾回收程序才会释放内存。即使运行了垃圾回收程序，也只会将内存还给虚拟机VM，而不是还给操作系统。结果是：Java程序会用光给它们的所有堆，从不释放。由于要保存实时（Just In Time，JIT）编译器产生的代码，Java程序的大小有时可能会膨胀为最大堆的数倍之巨。<br>　　还有一个问题，情况与此类似。从连接池分配一个<strong>数据库</strong>连接，而无法将已分配的连接还回给连接池。一些连接池有活动计时器，在维持一段时间的静止状态之后，计时器会释放掉数据库连接，但这不足以缓解糟糕的代码快速泄漏数据库连接所造成的资源浪费。<br>　　<strong>进程缺乏文件描述符</strong><br>　　如果已为一台Web服务器或其他关键进程分配了文件描述符，但它却需要更多的文件描述符，则服务器或进程会被挂起或报错，直至得到了所需的文件描述符为止。文件描述符用来保持对开放文件和开放套接字的跟踪记录，开放文件和开放套接字是Web服务器很关键的组成部分，其任务是将文件复制到网络连接。默认时，大多数<strong>shell</strong>有64个文件描述符，这意味着每个从shell启动的进程可以同时打开64个文件和网络连接。大多数shell都有一个内嵌的 ulimit命令可以增加文件描述符的数目。<br>　　<strong>线程死锁</strong><br>　　由多线程带来的性能改善是以可靠性为代价的，主要是因为这样有可能产生线程死锁。线程死锁时，第一个线程等待第二个线程释放资源，而同时第二个线程又在等待第一个线程释放资源。我们来想像这样一种情形：在人行道上两个人迎面相遇，为了给对方让道，两人同时向一侧迈出一步，双方无法通过，又同时向另一侧迈出一步，这样还是无法通过。双方都以同样的迈步方式堵住了对方的去路。假设这种情况一直持续下去，这样就不难理解为何会发生死锁现象了。<br>　　解决死锁没有简单的方法，这是因为使线程产生这种问题是很具体的情况，而且往往有很高的负载。大多数<strong>软件测试</strong>产生不了足够多的负载，所以不可能暴露所有的线程错误。在每一种使用线程的语言中都存在线程死锁问题。由于使用Java进行线程编程比使用C容易，所以 Java程序员中使用线程的人数更多，线程死锁也就越来越普遍了。可以在Java代码中增加同步关键字的使用，这样可以减少死锁，但这样做也会影响性能。如果负载过重，数据库内部也有可能发生死锁。<br>　　如果程序使用了永久锁，比如锁文件，而且程序结束时没有解除锁状态，则其他进程可能无法使用这种类型的锁，既不能上锁，也不能解除锁。这会进一步导致系统不能正常工作。这时必须手动地解锁。<br>　　<strong>服务器超载</strong><br>Netscape Web服务器的每个连接都使用一个线程。Netscape Enterprise Web服务器会在线程用完后挂起，而不为已存在的连接提供任何服务。如果有一种负载分布机制可以检测到服务器没有响应，则该服务器上的负载就可以分布到<strong>其它</strong>的 Web服务器上，这可能会致使这些服务器一个接一个地用光所有的线程。这样一来，整个服务器组都会被挂起。操作系统级别可能还在不断地接收新的连接，而应用程序（Web服务器）却无法为这些连接提供服务。用户可以在浏览器状态行上看到connected（已连接）的提示消息，但这以后什么也不会发生。<br>　解决问题的一种方法是将obj.conf参数RqThrottle的值设置为线程数目之下的某个数值，这样如果越过 RqThrottle的值，就不会接收新的连接。那些不能连接的服务器将会停止工作，而连接上的服务器的响应速度则会变慢，但至少已连接的服务器不会被挂起。这时，文件描述符至少应当被设置为与线程的数目相同的数值，否则，文件描述符将成为一个瓶颈。<br>　　<strong>数据库中的临时表不够用</strong><br>　　许多数据库的临时表（cursor）数目都是固定的，临时表即保留查询结果的内存区域。在临时表中的数据都被读取后，临时表便会被释放，但大量同时进行的查询可能耗尽数目固定的所有临时表。这时，其他的查询就需要列队等候，直到有临时表被释放时才能再继续运行。<br>　　这是一个不容易被程序员发觉的问题，但会在负载测试时显露出来。但可能对于数据库管理员（DataBase Administrator，DBA）来说，这个问题十分明显。<br>　　此外，还存在一些其他问题：设置的表空间不够用、序号限制太低，这些都会导致表溢出错误。这些问题表明了一个好的DBA对用于生产的数据库设置和性能进行定期检查的重要性。而且，大多数数据库厂商也提供了监控和建模工具以帮助解决这些问题。<br>　　另外，还有许多因素也极有可能导致Web站点无法工作。如：相关性、子网流量超载、糟糕的设备驱动程序、硬件故障、包括错误文件的通配符、无意间锁住了关键的表。</p>
+
+                </section>
+
+                
+                
+
+                
+
+            </article>
+
+            
+            <nav class="dis_flex al_post_nav">
+                <a class="al_post_nav_item dis_flex_acenter" href="/2023/09/03/c/">
+                    
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-left"></use>
+                        </svg>
+                        <span class="al_text_ellipsis al_post_nav_desc">模板方法模式</span>
+                    
+                </a>
+                <a class="al_post_nav_item dis_flex_acenter" href="/2023/09/03/a/">
+                    
+                        <span class="al_text_ellipsis al_post_nav_desc">架构漫谈读后感</span>
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-right"></use>
+                        </svg>
+                    
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+        <div class="al_index_footer dis_flex_center">
+    <div class="al_index_footer_item al_index_footer_title">
+        John Doe
+    </div>
+
+    
+    
+
+    <div class="al_index_footer_item al_index_footer_extra">
+        Created By 
+        <a target="_blank" rel="noopener" href="https://github.com/iGuan7u/Acetolog">AcetoLog</a>
+         · Power By 
+        <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    </div>
+
+    <div class="al_index_footer_item al_index_footer_extra_right">
+        All Right Reserved
+    </div>
+</div>
+
+        <script type="text/javascript" async="async" src="/javascripts/acelog.js"></script>
+        
+        
+        
+        
+        
+
+    </body>
+</html>
