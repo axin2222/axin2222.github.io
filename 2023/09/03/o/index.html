@@ -5,7 +5,7 @@
     
     <link rel='stylesheet' href="/./css/dracula.css">
 
-        <title>采集北京市政百姓信件内容</title>
+        <title>观影大数据分析</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
 <link rel="stylesheet" href="/css/style.css">
@@ -73,11 +73,11 @@
             <article class="al_article">
                 <header>
                     <h1 class="al_page_title">
-                        采集北京市政百姓信件内容
+                        观影大数据分析
                     </h1>
                     <div class="al_page_info dis_flex">
                         <div class="al_page_content_info">
-                            Sun September 3, 2023 09:58 AM
+                            Sun September 3, 2023 03:28 PM
                         </div>
 
                         
@@ -91,17 +91,38 @@
 
                 
                 <section id="post-body">
-                    <p>需求描述</p>
-<p>需求1：将每年的信件数量用折线图进行展现，可以展现信件的数量随着时间的变化趋势。</p>
-<p>需求2：把信件类型的投诉和咨询这两种类型，用饼图进行数据展示，从而达到让观者能从中熟悉某个类型的数量与整个数据组间所存在的比例关系的目的。</p>
-<p>需求3：分析各个政府部门对信件的回答数量，用柱状图展示，可以达到展现数据并将数据进行比较的目的。</p>
-<p>需求1：</p>
-<p>数据</p>
-<p><img src="file:///C:\Users\asus\AppData\Local\Temp\ksohtml20876\wps1.jpg" alt="img"> </p>
-<p>可视化</p>
-<p><img src="file:///C:\Users\asus\AppData\Local\Temp\ksohtml20876\wps2.jpg" alt="img"> </p>
-<p>需求2：</p>
-<p><img src="file:///C:\Users\asus\AppData\Local\Temp\ksohtml20876\wps3.jpg" alt="img"> </p>
+                    <p>王 S 聪想要在海外开拓万 D 电影的市场， 这次他在考虑： 怎么拍商业电影才 能赚钱？毕竟一些制作成本超过 1 亿美元的大型电影也会失败。这个问题对电影 业来说比以往任何时候都更加重要。  所以，他就请来了你 (数据分析师)来帮 他解决问题， 给出一些建议， 根据数据分析一下商业电影的成功是否存在统一公 式？以帮助他更好地进行决策。</p>
+<p>解决的终极问题是： 电影票房的影响因素有哪些？</p>
+<p>接下来我们就分不同的维度分析：</p>
+<p>•  观众喜欢什么电影类型？有什么主题关键词？</p>
+<p>•  电影风格随时间是如何变化的？</p>
+<p>•  电影预算高低是否影响票房？</p>
+<p>•  高票房或者高评分的导演有哪些？</p>
+<p>•   电影的发行时间最好选在啥时候？</p>
+<p>•  拍原创电影好还是改编电影好？</p>
+<p>本次使用的数据来自于 Kaggle 平台(TMDb 5000 Movie Database)。收录了 美国地区 1916-2017 年近 5000 部电影的数据，包含预算、导演、票房、电影评</p>
+<p>分等信息。原始数据集包含 2 个文件：</p>
+<p>•  tmdb_5000_movies：电影基本信息，包含 20 个变量</p>
+<p>•  tmdb_5000_credits：演职员信息，包含 4 个变量</p>
+<p>请使用 Python  编程，完成下列问题：</p>
+<p>(1) 使用附件中的 tmdb_5000_movies.csv 和 tmdb_5000_credits.csv 数据集，进 行数据清洗、 数据挖掘、数据分析和数据可视化等，研究电影票房的影响因素有</p>
+<p>哪些？ 从不同的维度分析电影，讨论并分析你的结果。</p>
+<p>(2) 附件 tmdb_ 1000_predict.csv 中包含 1000 部电影的基本信息， 请你选择 合适的指标，进行特征提取， 建立机器学习的预测模型， 预测 1000  部电影的 vote_average 和 vote_count，并保存为 tmdb_ 1000_predicted.csv。</p>
+<p>数据清洗</p>
+<p><em><strong>*1*</strong></em> 导入数据</p>
+<p><img src="/./o/NO.01.001.jpg"></p>
+<p><img src="file:///C:\Users\asus\AppData\Local\Temp\ksohtml16736\wps2.jpg" alt="img"> </p>
+<p><em><strong>*2*</strong></em> 缺失值处理</p>
+<p>缺失记录仅__3_条，采取网上搜索，补全信息。</p>
+<p><em><strong>*2.1*</strong></em> 补全 <em><strong>*relea*</strong></em><em><strong>*se*</strong></em><em><strong>*_*</strong></em><em><strong>*date*</strong></em></p>
+<p><img src="file:///C:\Users\asus\AppData\Local\Temp\ksohtml16736\wps3.jpg" alt="img"> </p>
+<p>缺失记录的电影标题为《America Is Still the Place》， 日期为_2014-06-01_。</p>
+<p><em><strong>*2.2*</strong></em> 补全 <em><strong>*runtime*</strong></em></p>
+<p><img src="file:///C:\Users\asus\AppData\Local\Temp\ksohtml16736\wps4.jpg" alt="img"> </p>
+<p>缺失记录的电影 runtime 分别为___94____min 和 ___240____min。</p>
+<p><em><strong>*3*</strong></em> 重复值处理</p>
+<p><img src="file:///C:\Users\asus\AppData\Local\Temp\ksohtml16736\wps5.jpg" alt="img"> </p>
+<p>运行结果：有_4803 个不重复的 id ，可以认为没有重复数据。</p>
 
                 </section>
 
@@ -114,17 +135,12 @@
 
             
             <nav class="dis_flex al_post_nav">
-                <a class="al_post_nav_item dis_flex_acenter" href="/2023/09/03/o/">
-                    
-                        <svg class="al_arrow">
-                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-left"></use>
-                        </svg>
-                        <span class="al_text_ellipsis al_post_nav_desc">观影大数据分析</span>
+                <a class="al_post_nav_item dis_flex_acenter" href="/">
                     
                 </a>
-                <a class="al_post_nav_item dis_flex_acenter" href="/2023/09/03/h/">
+                <a class="al_post_nav_item dis_flex_acenter" href="/2023/09/03/i/">
                     
-                        <span class="al_text_ellipsis al_post_nav_desc">环保自检系统</span>
+                        <span class="al_text_ellipsis al_post_nav_desc">采集北京市政百姓信件内容</span>
                         <svg class="al_arrow">
                             <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-right"></use>
                         </svg>
